@@ -26,17 +26,21 @@ class LoginUITest: XCTestCase {
         //Stub login service to always pass
         stubbedLoginService?.provideLoginSuccess()
         
-        //Perform login
         app?.textFields["usernameInput"].tap()
-        app?.textFields["usernameInput"].typeText("jack")
-        
+        app?.textFields["usernameInput"].typeText(username)
         app?.textFields["passwordInput"].tap()
-        app?.textFields["passwordInput"].typeText("swallow")
-        
+        app?.textFields["passwordInput"].typeText(password)
         app?.buttons["Login"].tap()
         
+        //Perform login
+        let loginScreen = LoginScreen(app: app!)
+        loginScreen.inputUsername(username: "jack")
+        loginScreen.inputPassword(password: "swallow")
+
+        loginScreen.tapLoginButton()
+        
         //Verify success result
-        XCTAssertTrue((app?.staticTexts["Welcome!"].exists)!)
+        loginScreen.welcomeMessageShouldExist()
     }
     
     func testLoginFail() {
@@ -44,16 +48,14 @@ class LoginUITest: XCTestCase {
         stubbedLoginService?.provideLoginFail()
         
         //Perform login
-        app?.textFields["usernameInput"].tap()
-        app?.textFields["usernameInput"].typeText("jack")
+        let loginScreen = LoginScreen(app: app!)
+        loginScreen.inputUsername(username: "")
+        loginScreen.inputPassword(password: "")
         
-        app?.textFields["passwordInput"].tap()
-        app?.textFields["passwordInput"].typeText("")
-        
-        app?.buttons["Login"].tap()
+        loginScreen.tapLoginButton()
         
         //Verify fail result
-        XCTAssertTrue((app?.alerts["Login fail"].exists)!)
+        loginScreen.errorMessageShouldExist()
     }
     
 }

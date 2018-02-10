@@ -12,6 +12,7 @@
 		0984F187202E790400FF5F03 /* login.success.json in Resources */ = {isa = PBXBuildFile; fileRef = 0984F185202E790400FF5F03 /* login.success.json */; };
 		0984F189202E7F4E00FF5F03 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F188202E7F4E00FF5F03 /* LoginService.swift */; };
 		0984F1CB202EB92900FF5F03 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F1CA202EB92900FF5F03 /* LoginService.swift */; };
+		0984F1CD202EE09600FF5F03 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F1CC202EE09600FF5F03 /* LoginScreen.swift */; };
 		09A34489202E36440052434C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A34488202E36440052434C /* AppDelegate.swift */; };
 		09A3448B202E36440052434C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A3448A202E36440052434C /* ViewController.swift */; };
 		09A3448E202E36440052434C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A3448C202E36440052434C /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		0984F185202E790400FF5F03 /* login.success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login.success.json; sourceTree = "<group>"; };
 		0984F188202E7F4E00FF5F03 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0984F1CA202EB92900FF5F03 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		0984F1CC202EE09600FF5F03 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		09A34485202E36440052434C /* login_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = login_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A34488202E36440052434C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A3448A202E36440052434C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				09A344AA202E36450052434C /* Info.plist */,
 				0984F182202E77FF00FF5F03 /* LoginUITest.swift */,
 				0984F188202E7F4E00FF5F03 /* LoginService.swift */,
+				0984F1CC202EE09600FF5F03 /* LoginScreen.swift */,
 			);
 			path = login_demoUITests;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				0984F183202E77FF00FF5F03 /* LoginUITest.swift in Sources */,
 				09E4F3A1202E46F6007C1D8D /* HTTPDynamicStub.swift in Sources */,
 				0984F189202E7F4E00FF5F03 /* LoginService.swift in Sources */,
+				0984F1CD202EE09600FF5F03 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
