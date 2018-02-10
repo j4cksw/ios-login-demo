@@ -23,10 +23,9 @@ class HTTPDynamicStubs {
         for stub in initialStubs {
             setupStub(url: stub.url, filename: stub.jsonFilename, method: stub.method)
         }
-        
     }
     
-    public func setupStub(url: String, filename: String, method: HTTPMethod = .GET) {
+    public func setupStub(url: String, filename: String, method: HTTPMethod = .GET, response: Int = 200) {
         let testBundle = Bundle(for: type(of: self))
         let filePath = testBundle.path(forResource: filename, ofType: "json")
         let fileUrl = URL(fileURLWithPath: filePath!)
@@ -37,7 +36,7 @@ class HTTPDynamicStubs {
         
         // Swifter makes it very easy to create stubbed responses
         let response: ((HttpRequest) -> HttpResponse) = { _ in
-            return HttpResponse.raw(200, "OK", ["Content-Type": "application/json"], { writer in
+            return HttpResponse.raw(response, "OK", ["Content-Type": "application/json"], { writer in
                 try writer.write(data)
             })
         }

@@ -6,9 +6,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
+    override func viewDidLoad() {
+        print(LoginService.BASE_URL)
+    }
     
     @IBAction func onLoginButtonClicked(_ sender: UIButton) {
-        Alamofire.request("http://localhost:8882/login", method: .post, parameters: [:],encoding: JSONEncoding.default, headers: nil)
+        Alamofire.request(LoginService.BASE_URL, method: .post, parameters: [:],encoding: JSONEncoding.default, headers: nil)
             .validate()
             .responseData {
             response in
