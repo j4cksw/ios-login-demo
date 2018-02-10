@@ -1,0 +1,7 @@
+- request:
+    method: POST
+    url: /login
+  
+  response:
+    status: 200
+    body: Login success

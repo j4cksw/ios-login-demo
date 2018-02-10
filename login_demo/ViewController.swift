@@ -1,25 +1,44 @@
-//
-//  ViewController.swift
-//  login_demo
-//
-//  Created by Prayoch Rujira on 10/2/2561 BE.
-//  Copyright © 2561 Prayoch Rujira. All rights reserved.
-//
-
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var passwordInput: UITextField!
+    
+    
+    @IBAction func onLoginButtonClicked(_ sender: UIButton) {
+        Alamofire.request("http://localhost:8882/login", method: .post, parameters: [:],encoding: JSONEncoding.default, headers: nil)
+            .validate()
+            .responseData {
+            response in
+            
+            switch response.result {
+                
+            case .success:
+                self.openWelcomeScreen()
+                
+                break
+            case .failure:
+                
+                self.showAlert()
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func openWelcomeScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "welcome") as! WelcomeViewController
+        
+        self.present(vc, animated: true, completion: nil)
     }
-
-
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Login fail", message:
+            "An error occurs please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
