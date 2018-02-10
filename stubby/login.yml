@@ -3,5 +3,5 @@
     url: /login
   
   response:
-    status: 200
+    status: 400
     body: Login success

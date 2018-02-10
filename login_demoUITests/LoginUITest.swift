@@ -27,8 +27,16 @@ class LoginUITest: XCTestCase {
         stubbedLoginService?.provideLoginSuccess()
         
         //Perform login
+        app?.textFields["usernameInput"].tap()
+        app?.textFields["usernameInput"].typeText("jack")
+        
+        app?.textFields["passwordInput"].tap()
+        app?.textFields["passwordInput"].typeText("swallow")
+        
+        app?.buttons["Login"].tap()
         
         //Verify success result
+        XCTAssertTrue((app?.staticTexts["Welcome!"].exists)!)
     }
     
     func testLoginFail() {
@@ -36,8 +44,16 @@ class LoginUITest: XCTestCase {
         stubbedLoginService?.provideLoginFail()
         
         //Perform login
+        app?.textFields["usernameInput"].tap()
+        app?.textFields["usernameInput"].typeText("jack")
+        
+        app?.textFields["passwordInput"].tap()
+        app?.textFields["passwordInput"].typeText("")
+        
+        app?.buttons["Login"].tap()
         
         //Verify fail result
+        XCTAssertTrue((app?.alerts["Login fail"].exists)!)
     }
     
 }
